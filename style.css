@@ -80,6 +80,10 @@ header{
 .categories-title{
     font-size: 35px;
     letter-spacing: 1px;
+    background-color: yellow;
+    text-align: center;
+    padding: 6px;
+    border-radius: 15px;
 }
 
 .categories-items{
@@ -177,7 +181,7 @@ header{
     position: absolute;
     width: 110%;
     height: 2px;
-    background: black;
+    background: red;
     top: 30%;
     left: -5%;
     transform: rotate(-10deg);
@@ -185,4 +189,23 @@ header{
 
 .product-item.on-sale .price-sale{
     display: block;
+}
+
+.product-add-to-basket-btn{
+    background-color: black;
+    color: white;
+    width: 60%;
+    font-size: 20px;
+    padding: 8px;
+    border-radius: 15px;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.product-add-to-basket-btn:hover{
+    color: yellow;
+}
+
+.products{
+    gap: 70px;
 }

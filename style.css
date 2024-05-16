@@ -100,6 +100,9 @@ header{
 .categories-items button:hover{
     background-color: black;
     color: yellow;
+    flex-wrap: wrap;
+    padding: 0px 10px;
+    justify-content: center;
 }
 
 .categories-items button.active{
@@ -107,3 +110,79 @@ header{
     color: yellow;
 }
 
+.products{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 30px;
+}
+
+.product-item{
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3 ease-in-out;
+}
+
+.product-item:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.product-item image{
+    width: 260px;
+}
+
+.product-name{
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.product-description{
+    color: gray;
+    font-size: 15px;
+    line-height: 22px;
+    width: 90%;
+}
+
+.product-price{
+    color: green;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.product-price .price-sale{
+    display: none;
+}
+
+.product-item.on-sale .price{
+    color: black;
+    font-size: 13px;
+    position: relative;
+}
+
+.product-item.on-sale .price::before{
+    content: "";
+    position: absolute;
+    width: 110%;
+    height: 2px;
+    background: black;
+    top: 30%;
+    left: -5%;
+    transform: rotate(-10deg);
+}
+
+.product-item.on-sale .price-sale{
+    display: block;
+}

@@ -68,3 +68,42 @@ header{
     font-weight: 500;
     gap: 5px;
 }
+
+.categories{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0px;
+    gap: 15px;
+}
+
+.categories-title{
+    font-size: 35px;
+    letter-spacing: 1px;
+}
+
+.categories-items{
+    display: flex;
+    gap: 20px;
+}
+
+.categories-items button{
+    font-size: 20px;
+    padding: 10px 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.categories-items button:hover{
+    background-color: black;
+    color: yellow;
+}
+
+.categories-items button.active{
+    background: black;
+    color: yellow;
+}
+

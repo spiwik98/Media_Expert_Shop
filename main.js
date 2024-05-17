@@ -1,8 +1,27 @@
 let currentProducts = products;
 let categories = new Set();
+let basket = [];
+let addToBasketButtons;
 
 const productsSection = document.querySelector(".products");
 
+const addToBasket = (e) => {
+    const selectedId = parseInt(e.target.dataset.id);
+  
+    const key = currentProducts.findIndex((product) => product.id === selectedId);
+  
+    basket.push(currentProducts.at(key));
+  
+    const basketTotal = basket.reduce((sum, product) => {
+      return (sum += product.price);
+    }, 0);
+  
+    basketTotal > 0
+      ? basketClearBtn.classList.add("active")
+      : basketClearBtn.classList.remove("active");
+  
+    basketAmountSpan.innerHTML = `${basketTotal} zł`;
+  };
 
 const renderProducts = (items) => {
     productsSection.innerHTML = "";
@@ -22,6 +41,10 @@ const renderProducts = (items) => {
 
         productsSection.appendChild(newProduct);
     }
+    addToBasketButtons = document.querySelectorAll(".product-add-to-basket-btn");
+    addToBasketButtons.forEach((btn) =>
+      btn.addEventListener("click", addToBasket)
+    );
 };
 
 
@@ -92,3 +115,12 @@ searchBarInput.addEventListener("input", (e) => {
 });
 
 
+const basketAmountSpan = document.querySelector(".basket-amount");
+const basketClearBtn = document.querySelector(".basket-clear-btn");
+
+const clearBasket = () => {
+  basketAmountSpan.innerHTML = "Basket";
+  basket = [];
+};
+
+basketClearBtn.addEventListener("click", clearBasket);

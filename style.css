@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+body button,
+body div {
+    transition: all 0.3s ease-in-out;
+}
+
 body{
     font-family: "Montserrat", sans-serif;
 }
@@ -13,35 +18,36 @@ header{
     color: white;
     display: flex;
     padding: 30px ;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .header-title{
     display: flex;
+    align-items: center;
 }
 
 .header-title span:first-child{
     color: yellow;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 .header-title span:last-child{
     color: black;
     background-color: yellow;
-    padding: 2px 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 3px 10px;
     border-radius: 25%;
     max-width: max-content;
     margin-left: 10px;
-    font-size: 17px;
+    font-size: 20px;
 }
 
 .search-bar{
     flex-grow: 1;
     display: flex;
     align-items: center;
-    margin-left: 23%;
+    margin-left: 80px;
 }
 
 .search-bar-input{
@@ -57,9 +63,7 @@ header{
     padding: 2px 5px;
     border-top-right-radius: 15%;
     border-bottom-right-radius: 15%;
-    margin-right: 22%;
 }
-
 
 .header-basket {
     display: flex;
@@ -67,6 +71,20 @@ header{
     font-size: 20px;
     font-weight: 500;
     gap: 5px;
+}
+
+.basket-clear-btn{
+    background: none;
+    color: yellow;
+    border: none;
+    font-size: 20px;
+    align-items: start;
+    cursor: pointer;
+    display: none;
+}
+
+.basket-clear-btn.active{
+    display: block;
 }
 
 .categories{
@@ -81,14 +99,15 @@ header{
     font-size: 35px;
     letter-spacing: 1px;
     background-color: yellow;
-    text-align: center;
-    padding: 6px;
     border-radius: 15px;
 }
 
 .categories-items{
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
+    padding: 0px 10px;
+    justify-content: center;
 }
 
 .categories-items button{
@@ -98,15 +117,11 @@ header{
     border: none;
     cursor: pointer;
     border-radius: 15px;
-    transition: all 0.3s ease-in-out;
 }
 
 .categories-items button:hover{
     background-color: black;
     color: yellow;
-    flex-wrap: wrap;
-    padding: 0px 10px;
-    justify-content: center;
 }
 
 .categories-items button.active{
@@ -133,7 +148,6 @@ header{
     padding: 10px 15px;
     cursor: pointer;
     border-radius: 20px;
-    transition: all 0.3 ease-in-out;
     margin: 20px;
 }
 
@@ -212,16 +226,51 @@ header{
     color: white;
     width: 60%;
     font-size: 20px;
-    padding: 8px;
-    border-radius: 15px;
+    padding: 10px;
+    border-radius: 10px;
     border: none;
-    transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .product-add-to-basket-btn:hover{
     color: yellow;
 }
 
-.products{
-    gap: 70px;
+.empty-state{
+    display: none;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.empty-state.active{
+    display: block;
+}
+
+@media only screen and (min-width: 1300px) {
+    .container {
+        display: flex;
+    }
+    .categories-items {
+        flex-direction: column;
+    }
+    .categories {
+        margin: 0px;
+        border-right: 2px solid rgb(190, 190, 190);
+        min-width: 350px;
+    }
+    .categories-items button {
+        padding: 10px 50px;
+        border-radius: 5px;
+    }
+    .categories-title {
+        background: yellow;
+        width: 100%;
+        text-align: center;
+        padding: 6px;
+    }
+    .products {
+        margin-left: 15px;
+        gap: 50px;
+    }
 }

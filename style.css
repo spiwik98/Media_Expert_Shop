@@ -123,7 +123,8 @@ header{
 }
 
 .product-item{
-    max-width: 500px;
+    position: relative;
+    max-width: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -133,6 +134,22 @@ header{
     cursor: pointer;
     border-radius: 20px;
     transition: all 0.3 ease-in-out;
+    margin: 20px;
+}
+
+.product-item-sale-info{
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: black;
+    color: yellow;
+    padding: 5px 15px;
+    border-radius: 5px;
+    opacity: 0.8;
+}
+.product-item.on-sale .product-item-sale-info{
+    display: block;
 }
 
 .product-item:hover{
@@ -141,7 +158,7 @@ header{
 }
 
 .product-item image{
-    width: 260px;
+    width: 220px;
 }
 
 .product-name{
@@ -153,7 +170,6 @@ header{
     color: gray;
     font-size: 15px;
     line-height: 22px;
-    width: 90%;
 }
 
 .product-price{
